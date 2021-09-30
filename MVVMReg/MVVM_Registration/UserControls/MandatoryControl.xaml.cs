@@ -44,6 +44,25 @@ namespace MVVM_Registration.UserControls
 
         // Using a DependencyProperty as the backing store for RequiredSymbol.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty LabelTextProperty =
-            DependencyProperty.Register("LabelText", typeof(string), typeof(MandatoryControl), new PropertyMetadata("Name"));
+            DependencyProperty.Register("LabelText", typeof(string), typeof(MandatoryControl), new PropertyMetadata(string
+                .Empty));
+
+        public bool IsRequiredSymbol
+        {
+            get { return (bool)GetValue(IsRequiredSymbolProperty); }
+            set { SetValue(IsRequiredSymbolProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsRequiredSymbolProperty =
+            DependencyProperty.Register("IsRequiredSymbol", typeof(bool), typeof(MandatoryControl), new PropertyMetadata(true,OnRequiredChange));
+
+        private static void OnRequiredChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            MandatoryControl ctrl = d as MandatoryControl;
+            if ((bool)e.NewValue == false)
+            {
+                ctrl.RequiredSymbol = string.Empty;
+            }
+        }
     }
 }

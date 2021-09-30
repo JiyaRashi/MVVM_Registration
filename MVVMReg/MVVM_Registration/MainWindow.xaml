@@ -9,7 +9,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <uc:MandatoryControl  RequiredSymbol="*" LabelText="FirstName"/>
+            <uc:MandatoryControl  IsRequiredSymbol="False" LabelText="FirstName"/>
+        <uc:TimeControl ShowTime=""/>
         </StackPanel>
     </Grid>
 </Window>

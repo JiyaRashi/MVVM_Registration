@@ -58,6 +58,9 @@
     <Compile Include="UserControls\MandatoryControl.xaml.cs">
       <DependentUpon>MandatoryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TimeControl.xaml.cs">
+      <DependentUpon>TimeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\UserViewodel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +75,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\MandatoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TimeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
