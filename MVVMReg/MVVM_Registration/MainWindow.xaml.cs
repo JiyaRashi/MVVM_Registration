@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM_Registration.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace MVVM_Registration
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DP_Control.BirthYear++;
         }
     }
 }

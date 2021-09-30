@@ -25,8 +25,6 @@ namespace MVVM_Registration.UserControls
             InitializeComponent();
         }
 
-
-
         public DateTime ShowTime
         {
             get { return (DateTime)base.GetValue(ShowTimeProperty); }

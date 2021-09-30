@@ -11,6 +11,9 @@
         <StackPanel Orientation="Horizontal">
             <uc:MandatoryControl  IsRequiredSymbol="False" LabelText="FirstName"/>
         <uc:TimeControl ShowTime=""/>
+            <uc:SampleDPControl x:Name="DP_Control" Margin="10 0 0 0" BirthYear="1998"></uc:SampleDPControl>
+            <Button Content="ChangeValue" Click="Button_Click" />
+
         </StackPanel>
     </Grid>
 </Window>
