@@ -12,6 +12,7 @@
         <StackPanel>
             <uc:TimeControl HorizontalAlignment="Center" FontSize="25"/>
             <view:RegistrationView/>
+            <view:UserDataView/>
         </StackPanel>
         
     </Grid>
