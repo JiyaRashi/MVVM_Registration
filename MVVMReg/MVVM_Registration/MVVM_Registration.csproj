@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessLogics\BusinessLogic.cs" />
+    <Compile Include="Commands\AddCommand.cs" />
+    <Compile Include="Commands\LoadUserCommand.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="UserControls\MandatoryControl.xaml.cs">
       <DependentUpon>MandatoryControl.xaml</DependentUpon>
