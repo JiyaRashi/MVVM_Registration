@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:MVVM_Registration.UserControls"
              mc:Ignorable="d" >
     <Grid>
-        <TextBlock Text="{Binding Path=ShowTime, ElementName=TControl}"/>
+        <TextBlock Text="{Binding Path=Time, ElementName=TControl}"/>
     </Grid>
 </UserControl>

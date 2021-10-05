@@ -1,5 +1,4 @@
-﻿using MVVM_Registration.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MVVM_Registration
+namespace MVVM_Registration.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserDataView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserDataView : UserControl
     {
-        public MainWindow()
+        public UserDataView()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //DP_Control.BirthYear++;
         }
     }
 }

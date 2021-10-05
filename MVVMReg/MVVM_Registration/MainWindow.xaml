@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:MVVM_Registration.UserControls"
         xmlns:local="clr-namespace:MVVM_Registration"
+        xmlns:view="clr-namespace:MVVM_Registration.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <uc:MandatoryControl  IsRequiredSymbol="False" LabelText="FirstName"/>
-        <uc:TimeControl ShowTime=""/>
-            <uc:SampleDPControl x:Name="DP_Control" Margin="10 0 0 0" BirthYear="1998"></uc:SampleDPControl>
-            <Button Content="ChangeValue" Click="Button_Click" />
-
+        <StackPanel>
+            <uc:TimeControl HorizontalAlignment="Center" FontSize="25"/>
+            <view:RegistrationView/>
         </StackPanel>
+        
     </Grid>
 </Window>
