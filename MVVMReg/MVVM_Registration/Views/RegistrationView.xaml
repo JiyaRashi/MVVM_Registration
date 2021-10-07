@@ -5,10 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MVVM_Registration.Views"
              xmlns:vm="clr-namespace:MVVM_Registration.ViewModels"
+             xmlns:enum="clr-namespace:MVVM_Registration.Model"
+             xmlns:uc="clr-namespace:MVVM_Registration.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <vm:RegistrationViewModel x:Key="RegistrationViewModel"/>
+        <ObjectDataProvider MethodName="GetValues"
+        ObjectType="{x:Type enum:Language}"
+        x:Key="LanguageEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enum:Language" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider MethodName="GetValues"
+        ObjectType="{x:Type enum:Country}"
+        x:Key="CountryEnumValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enum:Country" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
     </UserControl.Resources>
     <Grid  DataContext="{Binding Source={StaticResource RegistrationViewModel}}"  >
         <Grid>
@@ -29,23 +45,24 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="FirstName" Grid.Column="0" Grid.Row="0" />
-            <TextBlock Text="LastName" Grid.Column="0" Grid.Row="1"/>
+            <uc:MandatoryControl LabelText="FirstName" Grid.Column="0" Grid.Row="0" />
+            <uc:MandatoryControl LabelText="LastName" Grid.Column="0" Grid.Row="1"/>
             <TextBlock Text="FullName" Grid.Column="0" Grid.Row="2"/>
-            <TextBlock Text="Email" Grid.Column="0" Grid.Row="3"/>
+            <uc:MandatoryControl LabelText="Email" Grid.Column="0" Grid.Row="3"/>
             <TextBlock Text="Language" Grid.Column="0" Grid.Row="4"/>
             <TextBlock Text="MobileNumer" Grid.Column="0" Grid.Row="5"/>
-            <TextBlock Text="Country" Grid.Column="0" Grid.Row="6"/>
-            <TextBlock Text="PinCode" Grid.Column="0" Grid.Row="7"/>
+            <uc:MandatoryControl LabelText="Country" Grid.Column="0" Grid.Row="6"/>
+            <uc:MandatoryControl LabelText="PinCode" Grid.Column="0" Grid.Row="7"/>
 
             <TextBox x:Name="txbFirstName" Text="{Binding Path=FirstName,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0"/>
             <TextBox x:Name="txbLastName" Text="{Binding Path=LastName,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1"/>
-            <TextBox x:Name="txbFullName" Grid.Column="1" Grid.Row="2"/>
-            <TextBox x:Name="txbEmail" Grid.Column="1" Grid.Row="3"/>
-            <ComboBox x:Name="cbLanguage" Grid.Column="1" Grid.Row="4"/>
+            <TextBox x:Name="txbFullName" Text="{Binding Path=FullName,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2"/>
+            <TextBox x:Name="txbEmail" Text="{Binding Path=Email,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3"/>
+            <ComboBox x:Name="cbLanguage" Text="{Binding Path=Language,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Source={StaticResource LanguageEnumValues}}" 
+                      Grid.Column="1" Grid.Row="4"/>
             <TextBox x:Name="txbMobileNumer" Text="{Binding Path=MobileNumber,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5"/>
-            <ComboBox x:Name="cbCountry" Grid.Column="1" Grid.Row="6"/>
-            <TextBox x:Name="txbPinCode" Grid.Column="1" Grid.Row="7"/>
+            <ComboBox x:Name="cbCountry" Grid.Column="1" Grid.Row="6" Text="{Binding Path=Country,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Source={StaticResource CountryEnumValues}}"/>
+            <TextBox x:Name="txbPinCode" Grid.Column="1" Grid.Row="7" Text="{Binding Path=PinCode,UpdateSourceTrigger=PropertyChanged}"/>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Grid.Row="8" Grid.ColumnSpan="2">
                 <Button Margin="5" FontSize="13" Content="Add" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=AddCommand}" />
                 <Button Margin="5" FontSize="13" Content="Load" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=LoadUserCommand}" />
