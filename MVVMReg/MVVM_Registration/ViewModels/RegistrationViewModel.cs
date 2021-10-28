@@ -54,9 +54,6 @@ namespace MVVM_Registration.ViewModels
             get { return _firstName; }
             set { 
                 _firstName = value;
-                if (HasFirstName)
-                {
-                }
                 OnPropertyRaised("FirstName");
 
             }
