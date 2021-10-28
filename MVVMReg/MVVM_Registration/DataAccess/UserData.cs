@@ -10,13 +10,19 @@ namespace MVVM_Registration.DataAccess
 {
     public class UserData
     {
-
+        private ObservableCollection<Users> UsersList = new ObservableCollection<Users>();
         public ObservableCollection<Users> GetUserList()
         {
-            ObservableCollection<Users> UsersList = new ObservableCollection<Users>();
-            UsersList.Add(new Users() { FirstName = "Jiyavudeen", LastName = "Junaid", MobileNumber = 8098820270 });
-            UsersList.Add(new Users() { FirstName = "Rasheetha Begam", LastName = "Junaid", MobileNumber = 7358847004 });
+            
+            // UsersList.Add(new Users() { FirstName = "Jiyavudeen", LastName = "Junaid", MobileNumber = 8098820270 });
+             //UsersList.Add(new Users() { FirstName = "Rasheetha Begam", LastName = "Junaid", MobileNumber = 7358847004 });
             return UsersList;
+        }
+
+        public ObservableCollection<Users> DeleteUser(Users users)
+        {
+           UsersList.Remove(users);
+           return UsersList;
         }
 
     }

@@ -11,14 +11,23 @@ namespace MVVM_Registration.BusinessLogics
 {
     public class BusinessLogic
     {
+        private UserData userData;
         public BusinessLogic()
         {
-
+            userData = new UserData();
         }
 
         public ObservableCollection<Users> GetAllUsers()
         {
-            return new UserData().GetUserList();
+            return userData.GetUserList();
         }
+
+        public ObservableCollection<Users> DeleteUser(Users users)
+        {
+            ObservableCollection<Users> updatedList= userData.DeleteUser(users);
+            return updatedList;
+        }
+
+
     }
 }

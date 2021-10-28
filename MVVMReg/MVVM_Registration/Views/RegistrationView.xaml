@@ -65,11 +65,11 @@
             <TextBox x:Name="txbPinCode" Grid.Column="1" Grid.Row="7" Text="{Binding Path=PinCode,UpdateSourceTrigger=PropertyChanged}"/>
             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Grid.Row="8" Grid.ColumnSpan="2">
                 <Button Margin="5" FontSize="13" Content="Add" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=AddCommand}" />
-                <Button Margin="5" FontSize="13" Content="Load" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=LoadUserCommand}" />
-                <Button Margin="5" FontSize="13" Content="Open" />
+                <Button Margin="5" FontSize="13" Content="Delete" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=DeleteCommand}" />
+                <Button Margin="5" FontSize="13" Content="View" Command="{Binding Source={StaticResource RegistrationViewModel}, Path=LoadUserCommand}" />
             </WrapPanel>
             <DataGrid DataContext="{Binding Source={StaticResource RegistrationViewModel}}"  Grid.Row="9" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding Users}" />
+                  ItemsSource="{Binding Users}" SelectedItem="{Binding Path=SelectedUser}" />
 
         </Grid>
 

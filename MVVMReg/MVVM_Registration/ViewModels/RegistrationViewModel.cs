@@ -10,15 +10,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Collections.Generic;
 
 namespace MVVM_Registration.ViewModels
 {
-    public class RegistrationViewModel : INotifyPropertyChanged,IDataErrorInfo
+    public class RegistrationViewModel : INotifyPropertyChanged
     {
         private ICommand addCommand;
 
         private ICommand loadUserCommand;
+
+        private ICommand deleteUserCommand;
 
         private ObservableCollection<Users> _users;
 
@@ -30,14 +31,14 @@ namespace MVVM_Registration.ViewModels
         private Country _country;
         private Int64 _pinCode;
 
+        private Users _selectedUser;
+
         private string _email;
-        private readonly Dictionary<string, List<string>> _propertyNameToErrorsDictionary;
         private bool HasFirstName => !string.IsNullOrEmpty(FirstName);
 
         public RegistrationViewModel()
         {
             Users = new BusinessLogic().GetAllUsers();
-            _propertyNameToErrorsDictionary = new Dictionary<string, List<string>>();
         }
 
         public Int64 MobileNumber
@@ -120,10 +121,12 @@ namespace MVVM_Registration.ViewModels
                 if(addCommand==null)
                    addCommand = new AddCommand(this);
                 return addCommand;
+
             }
             set 
             { 
-                addCommand = value; 
+                addCommand = value;
+                OnPropertyRaised("AddCommand");
             }
         }
 
@@ -138,9 +141,27 @@ namespace MVVM_Registration.ViewModels
             set
             {
                 loadUserCommand = value;
+                OnPropertyRaised("LoadUserCommand");
+
             }
         }
-        
+
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                if (deleteUserCommand == null)
+                    deleteUserCommand = new DeleteCommand(this);
+                return deleteUserCommand;
+            }
+            set
+            {
+                deleteUserCommand = value;
+                OnPropertyRaised("DeleteCommand");
+
+            }
+        }
+
         public ObservableCollection<Users> Users
         {
             get
@@ -150,9 +171,25 @@ namespace MVVM_Registration.ViewModels
             set
             {
                 _users = value;
+                OnPropertyRaised("Users");
+            }
+        }
+
+        public Users SelectedUser
+        {
+            get
+            {
+                return _selectedUser;
+            }
+            set
+            {
+                _selectedUser = value;
+                OnPropertyRaised("SelectedUser");
 
             }
         }
+
+
 
         public string Error => throw new NotImplementedException();
 

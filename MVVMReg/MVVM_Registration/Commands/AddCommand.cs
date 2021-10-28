@@ -1,4 +1,5 @@
-﻿using MVVM_Registration.ViewModels;
+﻿using MVVM_Registration.BusinessLogics;
+using MVVM_Registration.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
