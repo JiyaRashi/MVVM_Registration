@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:MVVM_Registration">
 
 
-    <Style TargetType="{x:Type local:CutstomTextControl}">
+    <!--<Style TargetType="{x:Type local:CutstomTextControl}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CutstomTextControl}">
@@ -15,5 +15,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

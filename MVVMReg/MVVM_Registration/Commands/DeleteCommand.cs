@@ -14,12 +14,10 @@ namespace MVVM_Registration.Commands
     {
         private RegistrationViewModel _regViewModel { get; set; }
 
-        private BusinessLogic BusinessLogic { get; set; }
 
         public DeleteCommand(RegistrationViewModel regViewModel)
         {
             _regViewModel = regViewModel;
-            BusinessLogic = new BusinessLogic();
         }
 
         public event EventHandler CanExecuteChanged
@@ -36,7 +34,6 @@ namespace MVVM_Registration.Commands
         public void Execute(object parameter)
         {
             Users users = _regViewModel.SelectedUser;
-            _regViewModel.Users=BusinessLogic.DeleteUser(users);
         }
     }
 }

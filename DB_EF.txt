@@ -1,0 +1,12 @@
+CREATE TABLE Users(
+ UsersId INT PRIMARY KEY IDENTITY(1,1),
+ FirstName VARCHAR(100),
+ LastName VARCHAR(100),
+ FullName VARCHAR(100),
+ Language VARCHAR(100),
+ Country VARCHAR(100),
+ Pincode Int,
+ Email VARCHAR(100),
+ MobileNumber Int,
+)
+GO

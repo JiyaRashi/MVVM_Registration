@@ -1,14 +1,10 @@
-﻿using MVVM_Registration.BusinessLogics;
-using MVVM_Registration.Commands;
+﻿using MVVM_Registration.Commands;
 using MVVM_Registration.DataAccess;
+using MVVM_Registration.DataAccess.EntityFrameWork;
 using MVVM_Registration.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MVVM_Registration.ViewModels
@@ -21,7 +17,7 @@ namespace MVVM_Registration.ViewModels
 
         private ICommand deleteUserCommand;
 
-        private ObservableCollection<Users> _users;
+        private IList<User> _users;
 
         private string _firstName;
         private string _lastName;
@@ -38,7 +34,10 @@ namespace MVVM_Registration.ViewModels
 
         public RegistrationViewModel()
         {
-            Users = new BusinessLogic().GetAllUsers();
+            //Users = new BusinessLogic().GetAllUsers();
+            SqlDataAccess sqlDataAccess = new SqlDataAccess();
+            Users = sqlDataAccess.GetAllUsers();
+
         }
 
         public Int64 MobileNumber
@@ -162,7 +161,7 @@ namespace MVVM_Registration.ViewModels
             }
         }
 
-        public ObservableCollection<Users> Users
+        public IList<User> Users
         {
             get
             {
@@ -171,7 +170,7 @@ namespace MVVM_Registration.ViewModels
             set
             {
                 _users = value;
-                OnPropertyRaised("Users");
+               // OnPropertyRaised("Users");
             }
         }
 
@@ -197,17 +196,17 @@ namespace MVVM_Registration.ViewModels
 
         public void AddUsers()
         {
-            Users.Add(new Users() 
-            {
-                FirstName = FirstName, 
-                LastName = LastName, 
-                FullName=FullName,
-                Language=Language,
-                Email=Email,
-                MobileNumber = MobileNumber,
-                Country=Country,
-                Pincode=PinCode
-            });
+            //Users.Add(new Users() 
+            //{
+            //    FirstName = FirstName, 
+            //    LastName = LastName, 
+            //    FullName=FullName,
+            //    Language=Language,
+            //    Email=Email,
+            //    MobileNumber = MobileNumber,
+            //    Country=Country,
+            //    Pincode=PinCode
+            //});
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
