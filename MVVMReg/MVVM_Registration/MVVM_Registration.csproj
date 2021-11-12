@@ -59,6 +59,7 @@
     <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="Commands\DeleteCommand.cs" />
     <Compile Include="Commands\LoadUserCommand.cs" />
+    <Compile Include="CustomControl\CutstomTextControl.cs" />
     <Compile Include="DataAccess\UserData.cs" />
     <Compile Include="UserControls\MandatoryControl.xaml.cs">
       <DependentUpon>MandatoryControl.xaml</DependentUpon>
@@ -88,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\MandatoryControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
